@@ -1,6 +1,6 @@
 require(lubridate)
-rm(list = ls())
-setwd("~/Project/Stocks")
+# rm(list = ls())
+setwd("...")
 #between 08:30 and 16:00
 if(hm(substr(as.character(Sys.time()),12,16)) >= hm("12:00") & hm(substr(as.character(Sys.time()),12,16)) <= hm("20:05")){
   library(rvest)
