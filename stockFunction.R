@@ -3,8 +3,8 @@
 stock <- function(ticker_name){
   require(dplyr)
   require(xts)
-  #data_ <- as.data.frame(readRDS("~/Project/Stocks/allData.rds"))
-  load("~/Project/Stocks/allData.RData")
+  #data_ <- as.data.frame(readRDS(".../allData.rds"))
+  load(".../allData.RData")
   data_ <- data_[which(data_$status != "closed"),-4]
   ticker_name <- toupper(ticker_name)
   xts_ <- xts(data_[which(grepl(ticker_name,data_$ticker)),3],data_[which(grepl(ticker_name,data_$ticker)),2])
@@ -18,7 +18,7 @@ stock <- function(ticker_name){
   rownames(df) <- index(df)
   assign(tolower(ticker_name), df, envir = .GlobalEnv)
   # write.table(df,
-  #             paste0("/home/ege/Project/Stocks/",ticker_name,"_1m.csv"),
+  #             paste0(".../",ticker_name,"_1m.csv"),
   #             row.names=F,
   #             na="NA",
   #             append=F,
