@@ -1,6 +1,6 @@
 stockCombine <- function(ticker_name){
   source("stockFunction.R")
-  a1 <- read.csv(paste0("/home/ege/Project/Stocks/",ticker_name,"_1min2.csv"), stringsAsFactors = F)
+  a1 <- read.csv(paste0(".../",ticker_name,"_1min2.csv"), stringsAsFactors = F)
   a1$date <- as.POSIXct(a1$date, tz = "UTC")
   ticker <- stock(ticker_name)
   ticker <- xts(ticker[,-1], ticker[,1])
@@ -17,7 +17,7 @@ stockCombine <- function(ticker_name){
   colnames(ticker)[2] <- "close"
   a2 <- rbind(a1,ticker)
   write.table(a2,
-              paste0("/home/ege/Project/Stocks/",ticker_name,"_1min2.csv"), 
+              paste0(".../",ticker_name,"_1min2.csv"), 
               row.names=F,
               na="NA",
               append=F, 
