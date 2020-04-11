@@ -32,7 +32,7 @@ stockCombine <- function(ticker){
   }else{
     wdTicker <- ticker
   }
-  data_ <- read.csv(paste0("/home/ege/Project/Stocks/",ticker,"_1min.csv"), header = T, stringsAsFactors = F)
+  data_ <- read.csv(paste0(".../",ticker,"_1min.csv"), header = T, stringsAsFactors = F)
   data_1 <- get_quote_data(symbol = wdTicker, data_range = '1d', data_interval = "5m")
   data_$date <- as.POSIXct(data_[,"date"], tz="UTC")
   data_$volume <- as.numeric(data_[,"volume"])
